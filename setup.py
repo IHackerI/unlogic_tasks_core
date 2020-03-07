@@ -24,9 +24,10 @@ setup(
     author_email='bulat.shaekhov@gmail.com',
     url='https://github.com/IHackerI/utasker_core',
     packages=find_packages(),
-    install_requires=
-        open('requirements.txt').read().split('\n\r|\n')
+    install_requires=['pymysql']
+        #open('requirements.txt').read().split('\n\r|\n')
     ,
+    dependency_links=['https://github.com/IHackerI/time_tools'],
     include_package_data=True,
     zip_safe=False,
 )
