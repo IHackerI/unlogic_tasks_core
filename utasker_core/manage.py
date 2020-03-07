@@ -1,4 +1,4 @@
-from Workers import CommandsManager
+from .Workers import CommandsManager
 import json
 import sys
 

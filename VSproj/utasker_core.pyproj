@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>ed767a79-3012-43bf-aabb-6f3c28e11061</ProjectGuid>
     <ProjectHome>..</ProjectHome>
-    <StartupFile>manage.py</StartupFile>
+    <StartupFile>utasker_core\manage.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>..</WorkingDirectory>
@@ -23,36 +23,40 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="System\" />
-    <Folder Include="System\DBTasksWork\" />
-    <Folder Include="System\Tools\" />
-    <Folder Include="Workers\" />
-    <Folder Include="Workers\TaskReaders\" />
-    <Folder Include="Workers\TasksCreators\" />
+    <Folder Include="utasker_core\" />
+    <Folder Include="utasker_core\System\" />
+    <Folder Include="utasker_core\System\DBTasksWork\" />
+    <Folder Include="utasker_core\System\Tools\" />
+    <Folder Include="utasker_core\Workers\" />
+    <Folder Include="utasker_core\Workers\TaskReaders\" />
+    <Folder Include="utasker_core\Workers\TasksCreators\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="manage.py" />
+    <Compile Include="utasker_core\manage.py" />
     <Compile Include="setup.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="System\DBTasksWork\TasksReader.py" />
-    <Compile Include="System\DBTasksWork\TasksSaver.py" />
-    <Compile Include="System\DBTasksWork\Tools.py" />
-    <Compile Include="System\DBTasksWork\__init__.py" />
-    <Compile Include="System\Models.py" />
-    <Compile Include="System\MySQLDatabaseTools.py" />
-    <Compile Include="System\Tools\TimeTools.py" />
-    <Compile Include="System\Tools\__init__.py" />
-    <Compile Include="System\__init__.py" />
-    <Compile Include="Workers\CommandsManager.py" />
-    <Compile Include="Workers\Helper.py" />
-    <Compile Include="Workers\TaskReaders\GetAllTasks.py" />
-    <Compile Include="Workers\TaskReaders\GetTasksWhere.py" />
-    <Compile Include="Workers\TaskReaders\__init__.py" />
-    <Compile Include="Workers\TasksCreators\NewTaskCreator.py" />
-    <Compile Include="Workers\TasksCreators\__init__.py" />
-    <Compile Include="Workers\TestDB.py" />
-    <Compile Include="Workers\__init__.py" />
+    <Compile Include="utasker_core\System\DBTasksWork\TasksReader.py" />
+    <Compile Include="utasker_core\System\DBTasksWork\TasksSaver.py" />
+    <Compile Include="utasker_core\System\DBTasksWork\Tools.py" />
+    <Compile Include="utasker_core\System\DBTasksWork\__init__.py" />
+    <Compile Include="utasker_core\System\Models.py" />
+    <Compile Include="utasker_core\System\MySQLDatabaseTools.py" />
+    <Compile Include="utasker_core\System\Tools\TimeTools.py" />
+    <Compile Include="utasker_core\System\Tools\__init__.py" />
+    <Compile Include="utasker_core\System\__init__.py" />
+    <Compile Include="utasker_core\Workers\CommandsManager.py" />
+    <Compile Include="utasker_core\Workers\Helper.py" />
+    <Compile Include="utasker_core\Workers\TaskReaders\GetAllTasks.py" />
+    <Compile Include="utasker_core\Workers\TaskReaders\GetTasksWhere.py" />
+    <Compile Include="utasker_core\Workers\TasksCreators\NewTaskCreator.py" />
+    <Compile Include="utasker_core\Workers\TasksCreators\__init__.py" />
+    <Compile Include="utasker_core\Workers\TestDB.py" />
+    <Compile Include="utasker_core\Workers\__init__.py" />
+    <Compile Include="utasker_core\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utasker_core\Workers\TaskReaders\__init__.py" />
     <Compile Include="__init__.py" />
   </ItemGroup>
   <ItemGroup>
