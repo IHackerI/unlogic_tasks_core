@@ -1,5 +1,5 @@
 from .DBTasksWork import TasksSaver
-from .Tools import TimeTools
+from time_tools import TimeTools
 
 history_column = 'task_history'
 
