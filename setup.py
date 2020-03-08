@@ -1,4 +1,5 @@
 from setuptools import setup, find_packages
+from pip._internal.req import parse_requirements
 
 def get_reqs(file_path):
     reqs = open(file_path).read().replace('\n\r', '\n').split('\n')
