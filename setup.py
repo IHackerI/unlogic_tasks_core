@@ -1,13 +1,26 @@
 from setuptools import setup, find_packages
-from pip._internal.req import parse_requirements
 
 def get_reqs(file_path):
+    from pip._internal.req import parse_requirements
+
+    def clear_titles(title):
+        import re
+        return re.sub('[\t\r\n]', '', title).strip()
+
     reqs = open(file_path).read().replace('\n\r', '\n').split('\n')
     req = list(parse_requirements(file_path, session='hack'))
 
     ans = []
 
+    minus_idx = 0
+
     for idx, el in enumerate(reqs):
+
+        el = clear_titles(el)
+        if len(el) < 1 or (len(el) > 0 and el[0] == '#'):
+            minus_idx += 1
+            continue
+
         egg = False
 
         try:
@@ -19,7 +32,7 @@ def get_reqs(file_path):
 
         if not egg:
 
-            if req[idx].name:
+            if req[idx - minus_idx].name:
                 ans.append(el)
                 continue
 
