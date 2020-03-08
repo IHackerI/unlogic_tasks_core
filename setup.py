@@ -8,19 +8,30 @@ def get_reqs(file_path):
     ans = []
 
     for idx, el in enumerate(reqs):
-        if req[idx].name:
-            ans.append(el)
-            continue
+        egg = False
 
         try:
-            rsidx = el.rindex('/') + 1
+            eqq_idx = el.rindex('#egg=') + 5
+            final_idx = eqq_idx
+            egg = True
         except ValueError:
-            rsidx = -1
-        try:
-            lsidx = el.rindex('\\') + 1
-        except ValueError:
-            lsidx = -1
-        final_idx = max(rsidx, lsidx)
+            eqq_idx = -1
+
+        if not egg:
+
+            if req[idx].name:
+                ans.append(el)
+                continue
+
+            try:
+                rsidx = el.rindex('/') + 1
+            except ValueError:
+                rsidx = -1
+            try:
+                lsidx = el.rindex('\\') + 1
+            except ValueError:
+                lsidx = -1
+            final_idx = max(rsidx, lsidx)
         name = el[final_idx:]
 
         ans.append(name + ' @ ' + el)
