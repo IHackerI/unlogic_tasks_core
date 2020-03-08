@@ -1,10 +1,27 @@
 import pymysql  # require PyMySQL in requirements.txt
+import json
+import os
+
+import __main__
+full_path = os.path.dirname(os.path.abspath(__main__.__file__))
+
+db_settings_file_name = 'db_settings.json'
+
+try:
+    file = open(full_path + '\\' + db_settings_file_name, 'r')
+except:
+    raise Exception('I don\'t read database settings file! file path: ' + full_path + '\\' + db_settings_file_name + '\n' + 
+                    'file content structure: {"utasks_core": {"NAME": "unlogic_controller", "USER": "root", "PASSWORD": "qweqwe123", "HOST": "127.0.0.1"}}')
+
+DATABASES = json.loads(file.read())
+
+file.close()
 
 id_field_name = "id"
-db_address = "db"
-db_user = "root"
-db_password = "kartlidb"
-db_name = "unlogic_controller"
+db_address = DATABASES['utasks_core']['HOST']
+db_user = DATABASES['utasks_core']['USER']
+db_password = DATABASES['utasks_core']['PASSWORD']
+db_name = DATABASES['utasks_core']['NAME']
 
 
 def build_header_and_data(header, data):
