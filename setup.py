@@ -1,5 +1,30 @@
 from setuptools import setup, find_packages
 
+def get_reqs(file_path):
+    reqs = open(file_path).read().replace('\n\r', '\n').split('\n')
+    req = list(parse_requirements(file_path, session='hack'))
+
+    ans = []
+
+    for idx, el in enumerate(reqs):
+        if req[idx].name:
+            ans.append(el)
+            continue
+
+        try:
+            rsidx = el.rindex('/') + 1
+        except ValueError:
+            rsidx = -1
+        try:
+            lsidx = el.rindex('\\') + 1
+        except ValueError:
+            lsidx = -1
+        final_idx = max(rsidx, lsidx)
+        name = el[final_idx:]
+
+        ans.append(name + ' @ ' + el)
+    return ans
+
 setup(
     name="utasker_core",
     version='0.0.1',
@@ -24,10 +49,11 @@ setup(
     author_email='bulat.shaekhov@gmail.com',
     url='https://github.com/IHackerI/utasker_core',
     packages=find_packages(),
-    install_requires=['pymysql']
+    install_requires=#['pymysql']
+        get_reqs('requirements.txt')
         #open('requirements.txt').read().split('\n\r|\n')
     ,
-    dependency_links=['https://github.com/IHackerI/time_tools'],
+    #dependency_links=['https://github.com/IHackerI/time_tools'],
     include_package_data=True,
     zip_safe=False,
 )
