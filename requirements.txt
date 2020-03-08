@@ -1,2 +1,2 @@
 pymysql
-git+https://github.com/IHackerI/time_tools
+git+https://github.com/IHackerI/time_tools#egg=time_tools
