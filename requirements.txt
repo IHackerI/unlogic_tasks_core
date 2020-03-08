@@ -1,5 +1,2 @@
 pymysql
-
-
-								#this is time_tools package
 git+https://github.com/IHackerI/time_tools
