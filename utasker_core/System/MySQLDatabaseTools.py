@@ -8,7 +8,7 @@ full_path = os.path.dirname(os.path.abspath(__main__.__file__))
 db_settings_file_name = 'db_settings.json'
 
 try:
-    file = open(full_path + '\\' + db_settings_file_name, 'r')
+    file = open(full_path + os.sep + db_settings_file_name, 'r')
 except:
     raise Exception('I don\'t read database settings file! file path: ' + full_path + '\\' + db_settings_file_name + '\n' + 
                     'file content structure: {"utasks_core": {"NAME": "unlogic_controller", "USER": "root", "PASSWORD": "qweqwe123", "HOST": "127.0.0.1"}}')
