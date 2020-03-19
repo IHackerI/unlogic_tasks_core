@@ -12,6 +12,7 @@ def raw_tasks_to_tasks(raw_tasks):
     for row in raw_tasks[1]:
         cur_tsk = None
         cur_tsk = Task()
+        cur_tsk.freese_history = True
         for idx, col_value in enumerate(row):
             if raw_tasks[0][idx] == MySQLDatabaseTools.id_field_name:
                 cur_tsk[MySQLDatabaseTools.id_field_name] = col_value
@@ -25,6 +26,7 @@ def raw_tasks_to_tasks(raw_tasks):
                 continue
             cur_tsk[raw_tasks[0][idx]] = col_value
         #print(str(cur_tsk["id"]))
+        cur_tsk.freese_history = False
         ans_tasks.append(cur_tsk)
 
     return ans_tasks

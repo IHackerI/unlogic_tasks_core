@@ -52,7 +52,7 @@ def get_reqs(file_path):
 
 setup(
     name="utasker_core",
-    version='0.0.1',
+    version='0.0.2',
     description="Tasks controller for you team!",
     long_description=open('README.md').read(),
     classifiers=[
